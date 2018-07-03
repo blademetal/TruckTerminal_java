@@ -1,0 +1,14 @@
+# commons-lang3-3.7
+https://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.7
+
+# jfoenix-8.0.1
+https://mvnrepository.com/artifact/com.jfoenix/jfoenix/8.0.1
+
+# joda-time-2.0
+https://mvnrepository.com/artifact/joda-time/joda-time/2.0
+
+#poi-3.17
+https://mvnrepository.com/artifact/org.apache.poi/poi/3.17
+
+# sqlite-jdbc-3.21.0
+https://bitbucket.org/xerial/sqlite-jdbc/downloads/

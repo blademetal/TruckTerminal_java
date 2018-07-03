@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXBadge?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="500.0" styleClass="bgPane" stylesheets="@Settings.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.settings.SettingsController">
+    <children>
+        <JFXBadge layoutX="104.0" layoutY="331.0" />
+        <Label alignment="CENTER" layoutX="100.0" layoutY="25.0" prefHeight="50.0" prefWidth="300.0" text="Beállítások">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="256.0" layoutY="598.0" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" text="Mégse">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+        <JFXButton fx:id="applyBtn" buttonType="RAISED" layoutX="359.0" layoutY="598.0" onAction="#handleApply" prefHeight="30.0" prefWidth="100.0" text="Alkalmazás">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+      <Region fx:id="payTypesContainer" layoutX="25.0" layoutY="100.0" prefHeight="350.0" prefWidth="450.0" />
+      <Label layoutX="25.0" layoutY="75.0" text="Díjszabás beállításai">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXRadioButton fx:id="perHourRadio" layoutX="40.0" layoutY="120.0" onAction="#selectHour" text="Óránként" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="perDayRadio" layoutX="40.0" layoutY="210.0" onAction="#selectDay" text="Naponta" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="hibridRadio" layoutX="45.0" layoutY="300.0" onAction="#selectHibrid" text="Hibrid" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <ChoiceBox fx:id="numOfHoursPerHour" layoutX="90.0" layoutY="160.0" prefHeight="25.0" prefWidth="80.0" />
+      <Text fill="WHITE" layoutX="193.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="óránként">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="pricePerHour" layoutX="273.0" layoutY="161.0" prefHeight="25.0" prefWidth="120.0" />
+      <Text fill="WHITE" layoutX="403.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ft" wrappingWidth="32.0634765625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="82.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naponta">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="pricePerDay" layoutX="165.0" layoutY="250.0" prefHeight="25.0" prefWidth="120.0" />
+      <Text fill="WHITE" layoutX="293.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ft" wrappingWidth="32.0634765625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ChoiceBox fx:id="numOfHoursHibrid" layoutX="88.0" layoutY="331.0" prefHeight="25.0" prefWidth="80.0" />
+      <Text fill="WHITE" layoutX="193.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="óránként">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="pricePerHourHibrid" layoutX="273.0" layoutY="331.0" prefHeight="25.0" prefWidth="120.0" />
+      <Text fill="WHITE" layoutX="403.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ft" wrappingWidth="32.0634765625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="109.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naponta">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="pricePerDayHibrid" layoutX="189.0" layoutY="394.0" prefHeight="25.0" prefWidth="120.0" />
+      <Text fill="WHITE" layoutX="316.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ft" wrappingWidth="32.0634765625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="213.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ÉS" wrappingWidth="32.0634765625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Region fx:id="pickBC" layoutX="25.0" layoutY="497.0" prefHeight="60.0" prefWidth="450.0" />
+      <Label layoutX="25.0" layoutY="472.0" text="Háttészín beállítása">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="60.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Válassz háttérszínt">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ColorPicker fx:id="colorPalette" layoutX="231.0" layoutY="513.0" prefHeight="25.0" prefWidth="210.0" stylesheets="@Settings.css" />
+      <JFXButton fx:id="OKBtn" buttonType="RAISED" layoutX="153.0" layoutY="598.0" onAction="#handleOK" prefHeight="30.0" prefWidth="80.0" text="OK">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+    </children>
+</Pane>

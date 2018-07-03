@@ -1,0 +1,84 @@
+.bgPane {
+    -fx-background-color: #343538;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-text-fill: white;
+}
+
+JFXTextField {
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+}
+
+JFXDatePicker .text-field {
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+}
+
+#empPosition .label {
+    -fx-text-fill: black;
+}
+
+
+#addTransCompanyBtn {
+    -fx-background-color: #17c311;
+}
+
+#addTransCompanyBtn:hover {
+    -fx-background-color: #12830e;
+    -fx-effect: dropshadow( three-pass-box , rgba(178, 137, 117,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#addTransCompanyBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+
+
+#backBtn {
+    -fx-background-color: #6bb9ff;
+}
+
+#backBtn:hover {
+    -fx-background-color: #467aa8;
+    -fx-effect: dropshadow( three-pass-box , rgba(178, 137, 117,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#backBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+
+#forwardBtn {
+    -fx-background-color: #dd5423;
+}
+
+#forwardBtn:hover {
+    -fx-background-color: #9b3a17;
+    -fx-effect: dropshadow( three-pass-box , rgba(178, 137, 117,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#forwardBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

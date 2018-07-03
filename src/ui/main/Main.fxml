@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="1300.0" styleClass="bgPane" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.main.MainController">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu fx:id="MenuBar" mnemonicParsing="false" text="Fájl">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#loadAddTruck" text="Kamion hozzáadása" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadAddTransCompany" text="Fuvarozási cég hozzáadása" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadAddExpenditure" text="Kiadás hozzáadása" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadAddExpenditureType" text="Kiadási típus hozzáadása" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#exit" text="Kilépés" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <left>
+            <VBox prefHeight="475.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Accordion prefHeight="200.0" prefWidth="212.0" VBox.vgrow="SOMETIMES">
+                    <panes>
+                      <TitledPane animated="false" prefWidth="210.0" text="Forgalom az utolsó..." textFill="WHITE">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="224.0" prefWidth="210.0">
+                                 <children>
+                                    <JFXButton fx:id="turnoverPerShiftBtn" onAction="#handleTurnoverPerShift" prefHeight="30.0" prefWidth="211.0" styleClass="accordionBtn" text="műszakban" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="turnoverPerWeekBtn" layoutY="30.0" onAction="#handleTurnoverPerWeek" prefHeight="30.0" prefWidth="211.0" styleClass="accordionBtn" text="hétben" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="turnoverPer30DaysBtn" layoutY="60.0" onAction="#handleTurnoverPer30Days" prefHeight="30.0" prefWidth="211.0" styleClass="accordionBtn" text="30 napban" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="turnoverOptionalBtn" layoutY="90.0" onAction="#handleTurnoverOptional" prefHeight="30.0" prefWidth="211.0" styleClass="accordionBtn" text="egyéni" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children></AnchorPane>
+                        </content>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                      </TitledPane>
+                    </panes>
+                     <VBox.margin>
+                        <Insets left="-2.0" />
+                     </VBox.margin>
+                  </Accordion>
+                  <Pane prefHeight="350.0" prefWidth="210.0">
+                     <children>
+                        <GridPane fx:id="gridPane" layoutY="38.0" prefHeight="154.0" prefWidth="210.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="113.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="96.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="40.0" prefWidth="100.0" text="Kamionok száma" textFill="WHITE" wrapText="true">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Műszak bevétele" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Műszak kiadása" textFill="WHITE" wrapText="true" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="numOfTruckIn" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="94.826171875" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="shiftRevYet" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00 HUF" textAlignment="CENTER" wrappingWidth="95.826171875" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="shiftExpYet" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00 HUF" textAlignment="CENTER" wrappingWidth="94.826171875" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </GridPane>
+                        <JFXButton fx:id="settingsBtn" alignment="CENTER" graphicTextGap="10.0" layoutY="190.0" onAction="#loadSettings" prefHeight="80.0" prefWidth="210.0" text="Beállítások">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/settings.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
+                        <Label fx:id="infoLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="-2.0" prefHeight="40.0" prefWidth="210.0" text="Információk" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="signOutBtn" alignment="CENTER" graphicTextGap="10.0" layoutY="270.0" onAction="#signOut" prefHeight="80.0" prefWidth="210.0" text="Kijelentkezés">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/emergency-exit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children></Pane>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox prefHeight="575.0" prefWidth="120.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="loadAddTruckBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" onAction="#loadAddTruck" prefHeight="150.0" prefWidth="120.0" ripplerFill="WHITE" styleClass="rightSideBtn" text="Kamion hozzáadása" textAlignment="CENTER" wrapText="true" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/shipped.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="loadAddTransCompanyBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" onAction="#loadAddTransCompany" prefHeight="150.0" prefWidth="120.0" styleClass="rightSideBtn" text="Fuvarozási cég hozzáadása" textAlignment="CENTER" wrapText="true" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/factory.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <JFXButton fx:id="loadAddEmployeeBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" onAction="#loadAddEmployee" prefHeight="150.0" prefWidth="120.0" styleClass="rightSideBtn" text="Alkalmazott hozzáadása" textAlignment="CENTER" wrapText="true" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/engineer.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <JFXButton fx:id="loadAddExpenditureBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="35.0" onAction="#loadAddExpenditure" prefHeight="150.0" prefWidth="120.0" styleClass="rightSideBtn" text="Kiadás hozzáadása" textAlignment="CENTER" wrapText="true" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/give-money.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <JFXButton fx:id="loadAddExpenditureTypeBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="85.0" onAction="#loadAddExpenditureType" prefHeight="150.0" prefWidth="120.0" styleClass="rightSideBtn" text="Kiadás típus hozzáadása" textAlignment="CENTER" wrapText="true" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/blockchain.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <TabPane prefHeight="500.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab fx:id="inAllTruck" text="Behajtott kamionok">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <TableView fx:id="inTableView" layoutY="-7.0" prefHeight="446.0" prefWidth="545.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="inTruckIDCol" prefWidth="-1.0" text="Azonosító" />
+                                  <TableColumn fx:id="inPlateNumberCol" prefWidth="130.0" text="Rendszám" />
+                                    <TableColumn fx:id="inTransCompNameCol" prefWidth="130.0" text="Cégnév" />
+                                    <TableColumn fx:id="inTruckBrandCol" prefWidth="120.0" text="Márka" />
+                                    <TableColumn fx:id="inTruckStartDateCol" prefWidth="138.0" text="Behajtás" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="outAllTruck" text="Kihajtott kamionok">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="outTableView" layoutX="54.0" layoutY="36.0" prefHeight="446.0" prefWidth="545.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="outTruckIDCol" prefWidth="78.0" text="Azonosító" />
+                                  <TableColumn fx:id="outPlateNumberCol" prefWidth="78.0" text="Rendszám" />
+                                    <TableColumn fx:id="outTransCompNameCol" prefWidth="120.0" text="Cégnév" />
+                                    <TableColumn fx:id="outTruckBrandCol" prefWidth="70.0" text="Márka" />
+                                    <TableColumn fx:id="outTruckStartDateCol" prefWidth="110.0" text="Behajtás" />
+                                    <TableColumn fx:id="outTruckEndDateCol" prefWidth="110.0" text="Kihajtás" />
+                                    <TableColumn fx:id="outPaidCol" prefWidth="82.0" text="Fizetett HUF" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="outAllTruck1" text="Szűrés">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox fx:id="filterContainer" prefHeight="543.0" prefWidth="970.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="1500.0">
+                                       <children>
+                                          <VBox prefHeight="75.0" prefWidth="545.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="500.0" text="Szűrés szöveges és számadatokra" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="filterField" prefHeight="55.0" prefWidth="500.0" promptText="Azonosító, Rendszám, Cégnév, Márka, Fizetett összeg">
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" right="20.0" top="10.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="filterTableView" prefHeight="550.0" prefWidth="545.0">
+                                       <columns>
+                                          <TableColumn fx:id="filterTruckIDCol" prefWidth="78.0" text="Azonosító" />
+                                          <TableColumn fx:id="filterPlateNumberCol" prefWidth="78.0" text="Rendszám" />
+                                          <TableColumn fx:id="filterTransCompNameCol" prefWidth="120.0" text="Cégnév" />
+                                          <TableColumn fx:id="filterTruckBrandCol" prefWidth="70.0" text="Márka" />
+                                          <TableColumn fx:id="filterTruckStartDateCol" prefWidth="110.0" text="Behajtás" />
+                                          <TableColumn fx:id="filterTruckEndDateCol" prefWidth="110.0" text="Kihajtás" />
+                                          <TableColumn fx:id="filterPaidCol" prefWidth="82.0" text="Fizetett HUF" />
+                                       </columns>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="outAllTruck21" text="Kiadások">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="expTableView" layoutX="54.0" layoutY="36.0" prefHeight="446.0" prefWidth="545.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="expIDCol" prefWidth="78.0" text="Azonosító" />
+                                    <TableColumn fx:id="expTypeCol" prefWidth="78.0" text="Megnevezés" />
+                                    <TableColumn fx:id="expPriceByPieceCol" prefWidth="70.0" text="Egységár" />
+                                    <TableColumn fx:id="expAmountCol" prefWidth="110.0" text="Darabszám" />
+                                    <TableColumn fx:id="expPaidCol" prefWidth="110.0" text="Összeg" />
+                                    <TableColumn fx:id="expDateCol" prefWidth="82.0" text="Dátum" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="employeesTab" text="Alkalmazottak">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="empTableView" layoutX="54.0" layoutY="36.0" prefHeight="446.0" prefWidth="545.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="empIDCol" prefWidth="78.0" text="Azonosító" />
+                                    <TableColumn fx:id="empUserCol" prefWidth="78.0" text="Felhasz." />
+                                    <TableColumn fx:id="empPassCol" prefWidth="70.0" text="Jelszó" />
+                                    <TableColumn fx:id="empLastNCol" prefWidth="110.0" text="Vezetékn." />
+                                    <TableColumn fx:id="empFirstNCol" prefWidth="110.0" text="Keresztn." />
+                                    <TableColumn fx:id="empBirthCol" prefWidth="82.0" text="Szül. dátum" />
+                                    <TableColumn fx:id="empPhoneCol" prefWidth="78.0" text="Tel." />
+                                    <TableColumn fx:id="empPlaceCol" prefWidth="78.0" text="Lakhely" />
+                                    <TableColumn fx:id="empAddressCol" prefWidth="70.0" text="Cím" />
+                                    <TableColumn fx:id="empZIPCol" prefWidth="110.0" text="Irány." />
+                                    <TableColumn fx:id="empStartCol" prefWidth="110.0" text="Kezdés" />
+                                    <TableColumn fx:id="empEndCol" prefWidth="82.0" text="Befej." />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

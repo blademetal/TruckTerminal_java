@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXBadge?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" styleClass="bgPane" stylesheets="@AddExpenditure.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.addExpenditure.AddExpenditureController">
+   <children>
+      <JFXTextField fx:id="expPricePerItem" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="170.0" prefHeight="30.0" prefWidth="180.0" promptText="Összeg" unFocusColor="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <ChoiceBox fx:id="expType" layoutX="37.0" layoutY="115.0" prefHeight="30.0" prefWidth="180.0" />
+      <JFXBadge layoutX="104.0" layoutY="331.0" />
+      <Label alignment="CENTER" layoutX="75.0" layoutY="25.0" prefHeight="50.0" prefWidth="300.0" text="Kiadás hozzáadása">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="95.0" text="Típusa">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="backBtn" buttonType="RAISED" layoutX="127.0" layoutY="340.0" onAction="#cancel" prefHeight="30.0" prefWidth="120.0" text="Mégse">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="forwardBtn" buttonType="RAISED" layoutX="290.0" layoutY="340.0" onAction="#addExpenditure" prefHeight="30.0" prefWidth="120.0" text="Hozzáadás">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="expNumberOfItem" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="245.0" prefHeight="25.0" prefWidth="180.0" promptText="Darabszám" unFocusColor="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="278.0" layoutY="185.0" prefHeight="17.0" prefWidth="114.0" text="Végösszeg">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="calculateExpBtn" buttonType="RAISED" layoutX="278.0" layoutY="260.0" onAction="#calcExp" prefHeight="30.0" prefWidth="145.0" text="Kiszámol" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Text fx:id="expTotal" fill="WHITE" layoutX="278.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 HUF" wrappingWidth="145.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
