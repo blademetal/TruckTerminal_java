@@ -17,6 +17,6 @@ The admin and the user has different authorities and because of this the admin c
 ![alt text](https://github.com/blademetal/TruckTerminal_java/blob/master/screenshots/2018-07-04_01-24-51.png)
 
 To filter on the fly is also posible. The filtering part will scan the all columns, except the dates.
-![alt text](https://github.com/blademetal/TruckTerminal_java/blob/master/screenshots/2018-07-04_01-24-29.png
+![alt text](https://github.com/blademetal/TruckTerminal_java/blob/master/screenshots/2018-07-04_01-24-29.png)
 
 
